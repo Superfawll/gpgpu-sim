@@ -1390,6 +1390,7 @@ bool ldst_unit::memory_cycle( warp_inst_t &inst, mem_stage_stall_type &stall_rea
    if (filePointer != NULL) {
       fprintf(filePointer,"%u\t%u\t%d\t%u\n", gpu_sim_cycle, access.get_addr(), inst.warp_id(), inst.m_smid);
    }
+   fclose(filePointer);
    bool bypassL1D = false; 
    if ( CACHE_GLOBAL == inst.cache_op || (m_L1D == NULL) ) {
        bypassL1D = true; 
